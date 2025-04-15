@@ -4,7 +4,8 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
-import { Sidebar } from "lucide-react";
+import  Sidebar  from "@/components/Sidebar";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -47,12 +48,14 @@ export default function RootLayout({
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div className="hidden lg:block lg:col-span-3">
                       <Sidebar />
+                      {/* Sidebar component can be imported here */}
                     </div>
                     <div className="lg:col-span-9">{children}</div>
                   </div>
                 </div>
               </main>
             </div>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
